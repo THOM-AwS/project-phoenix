@@ -125,14 +125,19 @@ static esp_err_t event_handler(void *ctx, system_event_t *event)
     }
     return ESP_OK;
 }
-static void getBatteryVoltage(float *pBatteryVoltage){
+static void getBatteryVoltage(float *pBatteryVoltage) {
     adc1_config_width(ADC_WIDTH_BIT_12);
     adc1_config_channel_atten(ADC1_CHANNEL_4,ADC_ATTEN_DB_6);
-    *pBatteryVoltage = adc1_get_raw(ADC1_CHANNEL_4);
-    *pBatteryVoltage = adc1_get_raw(ADC1_CHANNEL_4) * 3.3 / 4095;
+    *pBatteryVoltage = adc1_get_raw(ADC1_CHANNEL_4);// * 3.3 / 4095;
 }
 
-static void simulateRoomTemperature(float *pRoomTemperature) {
+static void getLight(int *pLight) {
+    adc1_config_width(ADC_WIDTH_BIT_12);
+    adc1_config_channel_atten(ADC1_CHANNEL_3, ADC_ATTEN_DB_6);
+    *pLight = adc1_get_raw(ADC1_CHANNEL_3);
+}
+
+static void getTemp(float *pTemperature) {
     double Temp = 4095;
     double average = 4095;
     double RawADC = 4095;
@@ -141,25 +146,16 @@ static void simulateRoomTemperature(float *pRoomTemperature) {
         adc1_config_width(ADC_WIDTH_BIT_12);
         adc1_config_channel_atten(ADC1_CHANNEL_0, ADC_ATTEN_DB_11);
         RawADC = adc1_get_raw(ADC1_CHANNEL_0);
-        // printf("RAW: %f\n",RawADC);
         average += RawADC;
     }
     average = average/1000.0;
-    // printf("Initialize: %f\n", Temp);
-    // printf("Average: %f\n", average);
     Temp = 10000.0 * ((1023.0 / average) - 1.0);
-    // printf("%f\n", Temp);
     Temp = Temp * -1;
-    // printf("Invert: %f\n", Temp);
     Temp = log(Temp);
-    // printf("Log: %f\n", Temp);
     Temp = (1.0 / (0.001129148 + 0.000234125 * Temp + 0.0000000876741 * Temp * Temp * Temp));
-    // printf("Conversion: %f\n", Temp);
     Temp = Temp - 273.15; // Convert Kelvin to Celcius
-    // printf("Subtract from Kelvin: %f\n",Temp);
     Temp = Temp - 20; // calibrate
-    // printf("recalibrate: %f\n", Temp);
-    *pRoomTemperature = (float)Temp;
+    *pTemperature = (float)Temp;
 }
 
 static bool shadowUpdateInProgress;
@@ -198,6 +194,7 @@ void aws_iot_task(void *param) {
     size_t sizeOfJsonDocumentBuffer = sizeof(JsonDocumentBuffer) / sizeof(JsonDocumentBuffer[0]);
     float temperature = 0.0;
     float voltage = 0.0;
+    int brightness = 0;
 
     bool windowOpen = false;
     jsonStruct_t windowActuator;
@@ -220,6 +217,13 @@ void aws_iot_task(void *param) {
     battery.pData = &voltage;
     battery.type = SHADOW_JSON_FLOAT;
     battery.dataLength = sizeof(float);
+
+    jsonStruct_t light;
+    light.cb = NULL;
+    light.pKey = "brightness";
+    light.pData = &brightness;
+    light.type = SHADOW_JSON_INT16;
+    light.dataLength = sizeof(int);
 
     ESP_LOGI(TAG, "AWS IoT SDK Version %d.%d.%d-%s", VERSION_MAJOR, VERSION_MINOR, VERSION_PATCH, VERSION_TAG);
 
@@ -298,6 +302,8 @@ void aws_iot_task(void *param) {
         ESP_LOGE(TAG, "Shadow Register Delta Error");
     }
     temperature = STARTING_ROOMTEMPERATURE;
+    voltage     = 0;
+    brightness  = 0;
 
     // loop and publish a change in temperature
     while(NETWORK_ATTEMPTING_RECONNECT == rc || NETWORK_RECONNECTED == rc || SUCCESS == rc) {
@@ -310,13 +316,14 @@ void aws_iot_task(void *param) {
         }
         ESP_LOGI(TAG, "=======================================================================================");
         ESP_LOGI(TAG, "On Device: window state %s", windowOpen ? "true" : "false");
-        simulateRoomTemperature(&temperature);
+        getTemp(&temperature);
         getBatteryVoltage(&voltage);
+        getLight(&brightness);
 
         rc = aws_iot_shadow_init_json_document(JsonDocumentBuffer, sizeOfJsonDocumentBuffer);
         if(SUCCESS == rc) {
-            rc = aws_iot_shadow_add_reported(JsonDocumentBuffer, sizeOfJsonDocumentBuffer, 3, &temperatureHandler,
-                                             &windowActuator, &battery);
+            rc = aws_iot_shadow_add_reported(JsonDocumentBuffer, sizeOfJsonDocumentBuffer, 4, &temperatureHandler,
+                                             &windowActuator, &battery, &light);
             if(SUCCESS == rc) {
                 rc = aws_iot_finalize_json_document(JsonDocumentBuffer, sizeOfJsonDocumentBuffer);
                 if(SUCCESS == rc) {

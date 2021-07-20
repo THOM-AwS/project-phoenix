@@ -33,3 +33,6 @@
 
 0
 *.dSYM
+
+creds
+build/
