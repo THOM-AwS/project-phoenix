@@ -1,4 +1,4 @@
-/* * Data converted from /Users/spartan117/projects/project-phoenix/esp-aws-iot/examples/thing_shadow/main/certs/aws-root-ca.pem
+/* * Data converted from /Users/spartan117/projects/project-phoenix/project-pheonix/ESP32Board/main/certs/aws-root-ca.pem
  * (null byte appended)
  */
 .data

@@ -1,4 +1,4 @@
-/* * Data converted from /Users/spartan117/projects/project-phoenix/esp-aws-iot/examples/thing_shadow/build/esp-idf/mbedtls/x509_crt_bundle
+/* * Data converted from /Users/spartan117/projects/project-phoenix/project-pheonix/ESP32Board/build/esp-idf/mbedtls/x509_crt_bundle
  */
 .data
 .section .rodata.embedded

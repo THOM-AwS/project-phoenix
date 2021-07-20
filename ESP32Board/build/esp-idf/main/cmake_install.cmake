@@ -1,4 +1,4 @@
-# Install script for directory: /Users/spartan117/projects/project-phoenix/esp-aws-iot/examples/thing_shadow/main
+# Install script for directory: /Users/spartan117/projects/project-phoenix/project-pheonix/ESP32Board/main
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

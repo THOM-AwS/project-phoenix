@@ -35,4 +35,4 @@
 *.dSYM
 
 creds
-build/
+build/*

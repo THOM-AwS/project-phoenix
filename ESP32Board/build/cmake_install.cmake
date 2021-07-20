@@ -1,4 +1,4 @@
-# Install script for directory: /Users/spartan117/projects/project-phoenix/esp-aws-iot/examples/thing_shadow
+# Install script for directory: /Users/spartan117/projects/project-phoenix/project-pheonix/ESP32Board
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/Users/spartan117/projects/project-phoenix/esp-aws-iot/examples/thing_shadow/build/esp-idf/cmake_install.cmake")
+  include("/Users/spartan117/projects/project-phoenix/project-pheonix/ESP32Board/build/esp-idf/cmake_install.cmake")
 
 endif()
 
@@ -51,5 +51,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/spartan117/projects/project-phoenix/esp-aws-iot/examples/thing_shadow/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/spartan117/projects/project-phoenix/project-pheonix/ESP32Board/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
