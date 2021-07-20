@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+/Users/spartan117/projects/project-phoenix/esp-aws-iot/examples/thing_shadow/build/CMakeFiles/bootloader
+/Users/spartan117/projects/project-phoenix/esp-aws-iot/examples/thing_shadow/build/CMakeFiles/bootloader.rule
+/Users/spartan117/projects/project-phoenix/esp-aws-iot/examples/thing_shadow/build/CMakeFiles/bootloader-complete.rule
+/Users/spartan117/projects/project-phoenix/esp-aws-iot/examples/thing_shadow/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/Users/spartan117/projects/project-phoenix/esp-aws-iot/examples/thing_shadow/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/Users/spartan117/projects/project-phoenix/esp-aws-iot/examples/thing_shadow/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/Users/spartan117/projects/project-phoenix/esp-aws-iot/examples/thing_shadow/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/Users/spartan117/projects/project-phoenix/esp-aws-iot/examples/thing_shadow/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/Users/spartan117/projects/project-phoenix/esp-aws-iot/examples/thing_shadow/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/Users/spartan117/projects/project-phoenix/esp-aws-iot/examples/thing_shadow/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule

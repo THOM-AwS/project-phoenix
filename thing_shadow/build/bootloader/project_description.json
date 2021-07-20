@@ -1,0 +1,20 @@
+{
+    "project_name":       "bootloader",
+    "project_path":       "/Users/spartan117/esp/esp-idf/components/bootloader/subproject",
+    "build_dir":          "/Users/spartan117/projects/project-phoenix/esp-aws-iot/examples/thing_shadow/build/bootloader",
+    "config_file":        "/Users/spartan117/projects/project-phoenix/esp-aws-iot/examples/thing_shadow/sdkconfig",
+    "config_defaults":    "",
+    "app_elf":            "bootloader.elf",
+    "app_bin":            "bootloader.bin",
+    "git_revision":       "v4.3-dirty",
+    "target":             "esp32",
+    "phy_data_partition": "",
+    "monitor_baud" :      "115200",
+    "monitor_toolprefix": "xtensa-esp32-elf-",
+    "config_environment" : {
+        "COMPONENT_KCONFIGS" : "/Users/spartan117/esp/esp-idf/components/efuse/Kconfig;/Users/spartan117/esp/esp-idf/components/esp32/Kconfig;/Users/spartan117/esp/esp-idf/components/esp_common/Kconfig;/Users/spartan117/esp/esp-idf/components/esp_system/Kconfig;/Users/spartan117/esp/esp-idf/components/log/Kconfig;/Users/spartan117/esp/esp-idf/components/newlib/Kconfig;/Users/spartan117/esp/esp-idf/components/spi_flash/Kconfig",
+        "COMPONENT_KCONFIGS_PROJBUILD" : "/Users/spartan117/esp/esp-idf/components/bootloader/Kconfig.projbuild;/Users/spartan117/esp/esp-idf/components/esptool_py/Kconfig.projbuild;/Users/spartan117/esp/esp-idf/components/partition_table/Kconfig.projbuild"
+    },
+    "build_components" : [ "bootloader", "bootloader_support", "efuse", "esp32", "esp_common", "esp_hw_support", "esp_rom", "esp_system", "esptool_py", "hal", "log", "main", "micro-ecc", "newlib", "partition_table", "soc", "spi_flash", "xtensa", "" ],
+    "build_component_paths" : [ "/Users/spartan117/esp/esp-idf/components/bootloader", "/Users/spartan117/esp/esp-idf/components/bootloader_support", "/Users/spartan117/esp/esp-idf/components/efuse", "/Users/spartan117/esp/esp-idf/components/esp32", "/Users/spartan117/esp/esp-idf/components/esp_common", "/Users/spartan117/esp/esp-idf/components/esp_hw_support", "/Users/spartan117/esp/esp-idf/components/esp_rom", "/Users/spartan117/esp/esp-idf/components/esp_system", "/Users/spartan117/esp/esp-idf/components/esptool_py", "/Users/spartan117/esp/esp-idf/components/hal", "/Users/spartan117/esp/esp-idf/components/log", "/Users/spartan117/esp/esp-idf/components/bootloader/subproject/main", "/Users/spartan117/esp/esp-idf/components/bootloader/subproject/components/micro-ecc", "/Users/spartan117/esp/esp-idf/components/newlib", "/Users/spartan117/esp/esp-idf/components/partition_table", "/Users/spartan117/esp/esp-idf/components/soc", "/Users/spartan117/esp/esp-idf/components/spi_flash", "/Users/spartan117/esp/esp-idf/components/xtensa", "" ]
+}

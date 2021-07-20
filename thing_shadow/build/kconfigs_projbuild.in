@@ -1,0 +1,5 @@
+source "/Users/spartan117/esp/esp-idf/components/app_update/Kconfig.projbuild"
+source "/Users/spartan117/esp/esp-idf/components/bootloader/Kconfig.projbuild"
+source "/Users/spartan117/esp/esp-idf/components/esptool_py/Kconfig.projbuild"
+source "/Users/spartan117/esp/esp-idf/components/partition_table/Kconfig.projbuild"
+source "/Users/spartan117/projects/project-phoenix/esp-aws-iot/examples/thing_shadow/main/Kconfig.projbuild"
