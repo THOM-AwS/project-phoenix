@@ -36,3 +36,7 @@
 
 creds
 build/*
+
+*.pem 
+*.crt
+*.key
