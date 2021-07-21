@@ -40,3 +40,5 @@ build/*
 *.pem 
 *.crt
 *.key
+
+build/
