@@ -3,9 +3,10 @@
 # project subdirectory.
 #
 
-PROJECT_NAME := thing_shadow
+PROJECT_NAME := ESP32Board
 
 EXTRA_COMPONENT_DIRS := $(realpath ../..)
 
 include $(IDF_PATH)/make/project.mk
 
+EXTRA_COMPONENT_DIRS := $(realpath /Users/spartan117/projects/project-pheonix/esp-aws-iot/)

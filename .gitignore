@@ -42,3 +42,6 @@ build/*
 *.key
 
 build/
+esp-aws-iot/
+esp/
+certs/
