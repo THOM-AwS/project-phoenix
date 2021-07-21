@@ -1,5 +1,0 @@
-**/.terraform
-.env
-*.idea
-
-*.terraform.lock.hcl
