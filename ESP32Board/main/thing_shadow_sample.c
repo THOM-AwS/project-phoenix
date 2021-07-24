@@ -26,6 +26,7 @@
 #include "aws_iot_mqtt_client_interface.h"
 #include "aws_iot_shadow_interface.h"
 
+
 /*!
  * The goal of this sample application is to demonstrate the capabilities of shadow.
  * This device(say Connected Window) will open the window of a room based on temperature
